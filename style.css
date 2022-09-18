@@ -15,7 +15,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #000;
 }
 
 h1 {
@@ -28,15 +27,49 @@ h1 {
 
 main {
     display: flex;
+    gap: 20px;
 }
+
 aside {
     border: 1px solid #000;
     min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
 
+#menu {
+    font-family: impact;
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px black;
+    letter-spacing: 2px;
+}
+
+button {
+    width: 75%;
+    margin: 10px 0px;
+    font-size: 1rem;
+    padding: 5px;
+    font-family: impact;
+    letter-spacing: 1px;
+}
+
+label {
+    font-family: "Audiowide";
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    margin-top: 2rem;
 }
 
 .grid-container {
-    border: 1px solid #000;
+    border: 3px solid #000;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.7);
     flex: 1;
     min-width: 600px;
     min-height: 600px;
