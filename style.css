@@ -47,5 +47,7 @@ aside {
 item {
     background: white;
     border: 1px solid black;
-    
+}
+item:hover {
+    border: 3px solid cyan;
 }

@@ -15,25 +15,22 @@ function makeGrid(dim) {
     }
 }
 
-function changeColor(e) {
+function changeColor() {
     if (drawing === true) {
         this.style.cssText = "background: black;";
     }
 }
 
-function draw() {
-    drawing = true;
-}
-function notDraw() {
-    drawing = false;
-}
+
 
 makeGrid(defaultDimension);
 const dotArray = Array.from(document.querySelectorAll("item"))
 
-console.log(dotArray);
+dotArray.forEach(dot => dot.addEventListener("mousedown", () => {
+    drawing = true;
+    dot.style.cssText = "background: black;";
+}))
 
-dotArray.forEach(dot => dot.addEventListener("mousedown", draw))
-dotArray.forEach(dot => dot.addEventListener("mouseup", notDraw))
+dotArray.forEach(dot => dot.addEventListener("mouseup", () => {drawing = false}))
 dotArray.forEach(dot => dot.addEventListener("mouseover", changeColor))
 
