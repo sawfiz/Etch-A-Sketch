@@ -1,4 +1,4 @@
-const DEFAULT_SIZE = 30;
+const DEFAULT_SIZE = 45;
 let drawing = false;
 let mode = "black";
 let color = "#000000";
@@ -10,6 +10,7 @@ const btnRainbowEl = document.querySelector("#btn-rainbow");
 const btnEraseEl = document.querySelector("#btn-erase");
 const btnClearEl = document.querySelector("#btn-clear");
 const pointsEl = document.querySelector("#points");
+const labelEl = document.querySelector("label");
 const colorPickerEl = document.querySelector("#color-picker");
 
 function makeGrid(dim) {
@@ -56,11 +57,11 @@ function clearGrid() {
     makeGrid(currentSize);
 }
 
-function makeNewGrid(e) {
+function makeNewGrid(dim) {
     emptyGrid();
     dotArray = [];
-    makeGrid(e.target.value);
-    currentSize = e.target.value;
+    makeGrid(dim);
+    currentSize = dim;
 }
 
 function emptyGrid() {
@@ -104,7 +105,10 @@ function activateButtons() {
         clearGrid();
     });
 
-    pointsEl.addEventListener("input", makeNewGrid);
+    pointsEl.addEventListener("input", (e) => {
+        labelEl.innerText = `${e.target.value} x ${e.target.value} `;
+        makeNewGrid(e.target.value);
+    });
 }
 
 // Main program
