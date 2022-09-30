@@ -60,6 +60,10 @@ button {
     letter-spacing: 1px;
 }
 
+#color-picker {
+    width: 75%;
+}
+
 label {
     font-family: "Audiowide";
     color: white;

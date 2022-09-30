@@ -1,6 +1,7 @@
 const DEFAULT_SIZE = 30;
 let drawing = false;
 let mode = "black";
+let color = "#000000";
 let currentSize = DEFAULT_SIZE;
 
 const gridContainerEl = document.querySelector(".grid-container");
@@ -8,7 +9,8 @@ const btnBlackEl = document.querySelector("#btn-black");
 const btnRainbowEl = document.querySelector("#btn-rainbow");
 const btnEraseEl = document.querySelector("#btn-erase");
 const btnClearEl = document.querySelector("#btn-clear");
-const inputEl = document.querySelector("input");
+const pointsEl = document.querySelector("#points");
+const colorPickerEl = document.querySelector("#color-picker")
 
 function makeGrid(dim) {
     gridContainerEl.style.cssText = `grid-template-columns: repeat(${dim}, 1fr); 
@@ -39,25 +41,18 @@ function drawStuff(e) {
 
 function changeColor(dot) {
     console.log(dot);
-    switch (mode) {
-        case "erase":
-            dot.style.cssText = "background: white;";
-            break;
-        case "rainbow":
-            dot.style.cssText = `background: #${getRandomColor()};`;
-            break;
-        default:
-            dot.style.cssText = "background: black;";
-            break;
+    if (mode === "rainbow") {
+        color = getRandomColor();
     }
+    dot.style.backgroundColor = color;
 }
 
 function getRandomColor() {
-    return Math.floor(Math.random() * 16777215).toString(16);
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
 function clearGrid() {
-    gridContainerEl.innerHTML = "";
+    emptyGrid();
     makeGrid(currentSize);
 }
 
@@ -72,22 +67,30 @@ function emptyGrid() {
     gridContainerEl.innerHTML = "";
 }
 
-function main() {
+function activateButtons() {
     btnBlackEl.addEventListener("click", () => {
         mode = "black";
+        color = "#000000";
     });
+    colorPickerEl.addEventListener("input", e => {
+        mode = "personal";
+        color = e.target.value;
+        console.log(color);
+    })
     btnRainbowEl.addEventListener("click", () => {
         mode = "rainbow";
     });
     btnEraseEl.addEventListener("click", () => {
         mode = "erase";
+        color = "#ffffff";
     });
     btnClearEl.addEventListener("click", clearGrid);
 
-    inputEl.addEventListener("input", makeNewGrid);
+    pointsEl.addEventListener("input", makeNewGrid);
 }
 
 // Main program
-makeGrid(DEFAULT_SIZE);
-
-main();
+window.onload = () => {
+    makeGrid(DEFAULT_SIZE);
+    activateButtons();
+  }
