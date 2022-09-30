@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Audiowide");
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
 
 * {
     margin: 0px;
@@ -60,8 +60,22 @@ button {
     letter-spacing: 1px;
 }
 
-#color-picker {
-    width: 75%;
+input[type="color"] {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 label {
@@ -78,7 +92,7 @@ label {
     min-width: 600px;
     min-height: 600px;
     display: grid;
-    grid-template-rows: repeat(5, 20%); 
+    grid-template-rows: repeat(5, 20%);
 }
 
 item {

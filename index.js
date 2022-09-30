@@ -5,7 +5,7 @@ let color = "#000000";
 let currentSize = DEFAULT_SIZE;
 
 const gridContainerEl = document.querySelector(".grid-container");
-const btnBlackEl = document.querySelector("#btn-black");
+const btnColorEl = document.querySelector("#btn-color");
 const btnRainbowEl = document.querySelector("#btn-rainbow");
 const btnEraseEl = document.querySelector("#btn-erase");
 const btnClearEl = document.querySelector("#btn-clear");
@@ -68,13 +68,14 @@ function emptyGrid() {
 }
 
 function activateButtons() {
-    btnBlackEl.addEventListener("click", () => {
+    btnColorEl.addEventListener("click", () => {
         mode = "black";
         color = "#000000";
     });
     colorPickerEl.addEventListener("input", e => {
         mode = "personal";
         color = e.target.value;
+        btnColorEl.innerText = `Current Color: ${color}`;
         console.log(color);
     })
     btnRainbowEl.addEventListener("click", () => {
