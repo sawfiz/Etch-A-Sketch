@@ -34,14 +34,12 @@ function makeGrid(dim) {
 }
 
 function drawStuff(e) {
-    console.log(drawing);
     if (drawing === true) {
         changeColor(this);
     }
 }
 
 function changeColor(dot) {
-    console.log(dot);
     if (mode === "rainbow") {
         color = getRandomColor();
     }
@@ -88,7 +86,6 @@ function activateButtons() {
         btnColorEl.innerText = `Current Color: ${color}`;
         removeActive();
         btnColorEl.classList.add("active");
-        console.log(color);
     });
     btnRainbowEl.addEventListener("click", () => {
         mode = "rainbow";
