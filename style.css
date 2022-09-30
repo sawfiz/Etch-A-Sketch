@@ -58,6 +58,11 @@ button {
     padding: 5px;
     font-family: impact;
     letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+button.active {
+    border: 3px solid #20c1fb;
 }
 
 input[type="color"] {
