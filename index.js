@@ -102,9 +102,9 @@ function activateButtons() {
         clearGrid();
     });
 
-    pointsEl.addEventListener("input", (e) => {
-        labelEl.innerText = `${e.target.value} x ${e.target.value} `;
-        makeNewGrid(e.target.value);
+    pointsEl.addEventListener("input", () => {
+        labelEl.innerText = `${pointsEl.value} x ${pointsEl.value} `;
+        makeNewGrid(pointsEl.value);
     });
 }
 
