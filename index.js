@@ -2,6 +2,7 @@ const DEFAULT_SIZE = 45;
 let drawing = false;
 let mode = 'black';
 let color = '#000000';
+let personalColor = color;
 let currentSize = DEFAULT_SIZE;
 
 const gridContainerEl = document.querySelector('.grid-container');
@@ -81,7 +82,7 @@ function activateButtons() {
   btnColorEl.classList.add('active');
   btnColorEl.addEventListener('click', () => {
     mode = 'black';
-    color = '#000000';
+    color = personalColor;
     removeActive();
     btnColorEl.classList.add('active');
   });
@@ -90,6 +91,7 @@ function activateButtons() {
   colorPickerEl.addEventListener('input', (e) => {
     mode = 'personal';
     color = e.target.value;
+    personalColor = color;
     btnColorEl.innerText = `Current Color: ${color}`;
     removeActive();
     btnColorEl.classList.add('active');
@@ -113,6 +115,12 @@ function activateButtons() {
   // Clear the grid
   btnClearEl.addEventListener('click', () => {
     clearGrid();
+    if (mode === 'erase') {
+      mode = 'personal';
+      color = personalColor;
+      removeActive();
+      btnColorEl.classList.add('active');
+    }
   });
 
   // Ajust grid size and update label

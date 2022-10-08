@@ -32,4 +32,4 @@
 ## Resources
 
 ## Live site
-https://sawfiz.github.io/rock_paper_scissors/
+https://sawfiz.github.io/Etch-A-Sketch/
