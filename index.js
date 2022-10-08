@@ -30,6 +30,7 @@ function drawStuff() {
   }
 }
 
+// Make a new grid and add an eventlistener to each item in the grid
 function makeGrid(dim) {
   gridContainerEl.style.cssText = `grid-template-columns: repeat(${dim}, 1fr); 
         grid-template-rows: repeat(${dim}, 1fr)`;
@@ -63,18 +64,20 @@ function clearGrid() {
 
 function makeNewGrid(dim) {
   emptyGrid();
-  //   dotArray = [];
   makeGrid(dim);
   currentSize = dim;
 }
 
+// Clear status of all buttons
 function removeActive() {
   btnEraseEl.classList.remove('active');
   btnColorEl.classList.remove('active');
   btnRainbowEl.classList.remove('active');
 }
 
+// Activate the event listeners
 function activateButtons() {
+  // Start with the single color button active, default to black
   btnColorEl.classList.add('active');
   btnColorEl.addEventListener('click', () => {
     mode = 'black';
@@ -82,6 +85,8 @@ function activateButtons() {
     removeActive();
     btnColorEl.classList.add('active');
   });
+
+  // Switch to user personal color
   colorPickerEl.addEventListener('input', (e) => {
     mode = 'personal';
     color = e.target.value;
@@ -89,21 +94,28 @@ function activateButtons() {
     removeActive();
     btnColorEl.classList.add('active');
   });
+
+  // Switch to rainbow mode
   btnRainbowEl.addEventListener('click', () => {
     mode = 'rainbow';
     removeActive();
     btnRainbowEl.classList.add('active');
   });
+
+  // Switch to erase mode
   btnEraseEl.addEventListener('click', () => {
     mode = 'erase';
     color = '#ffffff';
     removeActive();
     btnEraseEl.classList.add('active');
   });
+
+  // Clear the grid
   btnClearEl.addEventListener('click', () => {
     clearGrid();
   });
 
+  // Ajust grid size and update label
   pointsEl.addEventListener('input', () => {
     labelEl.innerText = `${pointsEl.value} x ${pointsEl.value} `;
     makeNewGrid(pointsEl.value);
