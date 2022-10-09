@@ -107,3 +107,35 @@ item {
 item:hover {
     border: 3px solid cyan;
 }
+
+.modal {
+    width: 400px;
+    background-color: pink;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.warning {
+    text-align: center;
+    font-family: impact;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+p {
+    margin: 0.5rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    width: 100px;
+    padding: 0.5rem 1rem;
+}

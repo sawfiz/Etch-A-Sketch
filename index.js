@@ -14,6 +14,10 @@ const pointsEl = document.querySelector('#points');
 const labelEl = document.querySelector('label');
 const colorPickerEl = document.querySelector('#color-picker');
 
+const modalEl = document.querySelector('.modal');
+const cancelBtn = document.querySelector('#cancel-btn');
+const confirmBtn = document.querySelector('#confirm-btn');
+
 function getRandomColor() {
   return '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
@@ -56,11 +60,6 @@ function makeGrid(dim) {
 
 function emptyGrid() {
   gridContainerEl.innerHTML = '';
-}
-
-function clearGrid() {
-  emptyGrid();
-  makeGrid(currentSize);
 }
 
 function makeNewGrid(dim) {
@@ -114,19 +113,12 @@ function activateButtons() {
 
   // Clear the grid
   btnClearEl.addEventListener('click', () => {
-    clearGrid();
-    if (mode === 'erase') {
-      mode = 'personal';
-      color = personalColor;
-      removeActive();
-      btnColorEl.classList.add('active');
-    }
+    modalEl.showModal();
   });
 
   // Ajust grid size and update label
   pointsEl.addEventListener('input', () => {
-    labelEl.innerText = `${pointsEl.value} x ${pointsEl.value} `;
-    makeNewGrid(pointsEl.value);
+    modalEl.showModal();
   });
 }
 
@@ -135,3 +127,19 @@ window.onload = () => {
   makeGrid(DEFAULT_SIZE);
   activateButtons();
 };
+
+cancelBtn.addEventListener('click', () => {
+  modalEl.close();
+});
+
+confirmBtn.addEventListener('click', () => {
+  if (mode === 'erase') {
+    mode = 'personal';
+    color = personalColor;
+    removeActive();
+    btnColorEl.classList.add('active');
+  }
+  labelEl.innerText = `${pointsEl.value} x ${pointsEl.value} `;
+  makeNewGrid(pointsEl.value);
+  modalEl.close();
+});
