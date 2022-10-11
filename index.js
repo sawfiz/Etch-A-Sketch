@@ -116,8 +116,14 @@ function activateButtons() {
     modalEl.showModal();
   });
 
-  // Ajust grid size and update label
+  // Dragging on grid size updates the label
   pointsEl.addEventListener('input', () => {
+    labelEl.innerText = `${pointsEl.value} x ${pointsEl.value} `;
+  });
+
+  // Change grid size brings up a confirmation modal
+  pointsEl.addEventListener('change', () => {
+    labelEl.innerText = `${pointsEl.value} x ${pointsEl.value} `;
     modalEl.showModal();
   });
 }
@@ -139,7 +145,6 @@ confirmBtn.addEventListener('click', () => {
     removeActive();
     btnColorEl.classList.add('active');
   }
-  labelEl.innerText = `${pointsEl.value} x ${pointsEl.value} `;
   makeNewGrid(pointsEl.value);
   modalEl.close();
 });
