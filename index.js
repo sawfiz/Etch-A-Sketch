@@ -1,3 +1,6 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-loop-func */
 const DEFAULT_SIZE = 45;
 
 // Click handlers
@@ -107,6 +110,7 @@ const canvasManager = (() => {
   const gridContainerEl = document.querySelector('.grid-container');
 
   function getRandomColor() {
+    // eslint-disable-next-line prefer-template
     return '#' + Math.floor(Math.random() * 16777215).toString(16);
   }
 
