@@ -5,6 +5,7 @@
     - [HTML](#html)
     - [CSS](#css)
     - [JS](#js)
+      - [Revisit on 2022-11-11](#revisit-on-2022-11-11)
   - [To do](#to-do)
   - [Resources](#resources)
   - [Live site](#live-site)
@@ -25,6 +26,10 @@
 ### JS
 - Generation random color
 - Adding eventlistner to an array of items as each item is being created 
+#### Revisit on 2022-11-11
+- Refactor the code into 2 modules
+- Move all global variables into the modules
+- Fixed a bug when changing grid size, and click on Cancel, the grid size range and text should revert to current grid size
 
 ## To do
 - How to add a favicon
