@@ -30,6 +30,17 @@
 - Refactor the code into 2 modules
 - Move all global variables into the modules
 - Fixed a bug when changing grid size, and click on Cancel, the grid size range and text should revert to current grid size
+- Modularized the js code and use webpack to build package
+- Learn to use getters and setters when working with objects
+- Some thing to watch out for with modal based <dialog>
+  ```js
+    // Clear the grid
+  btnClearEl.addEventListener('click', () => {
+    // Remove 'open' to avoid an error in console
+    modalEl.removeAttribute('open');
+    modalEl.showModal();
+  });
+  ```
 
 ## To do
 - How to add a favicon
