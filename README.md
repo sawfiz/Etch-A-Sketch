@@ -33,14 +33,14 @@
 - Modularized the js code and use webpack to build package
 - Learn to use getters and setters when working with objects
 - Some thing to watch out for with modal based <dialog>
-  ```js
-    // Clear the grid
-  btnClearEl.addEventListener('click', () => {
-    // Remove 'open' to avoid an error in console
-    modalEl.removeAttribute('open');
-    modalEl.showModal();
-  });
-  ```
+```js
+// Clear the grid
+btnClearEl.addEventListener('click', () => {
+// Remove 'open' to avoid an error in console
+modalEl.removeAttribute('open');
+modalEl.showModal();
+});
+```
 
 ## To do
 - How to add a favicon
