@@ -1,4 +1,4 @@
-import Grid from './grid';
+import Grid from './Grid';
 import Display from './Display';
 import './style.css';
 

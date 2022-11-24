@@ -1,4 +1,4 @@
-import Dot from './dot';
+import Dot from './Dot';
 
 const Grid = (() => {
   const grid = [];
