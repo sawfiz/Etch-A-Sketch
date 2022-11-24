@@ -5,6 +5,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    /* border: 1px red solid; */
 }
 
 body {
@@ -99,11 +100,11 @@ label {
     display: grid;
 }
 
-item {
+.dot {
     background: white;
     border: 1px solid black;
 }
-item:hover {
+.dot:hover {
     border: 3px solid cyan;
 }
 
