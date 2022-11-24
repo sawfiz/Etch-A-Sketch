@@ -27,8 +27,11 @@ const canvasManager = (() => {
 
   // Make a new grid and add an eventlistener to each item in the grid
   function makeGrid(dim) {
-    gridContainerEl.style.cssText = `grid-template-columns: repeat(${dim}, 1fr); 
-          grid-template-rows: repeat(${dim}, 1fr)`;
+    // gridContainerEl.style.cssText = `grid-template-columns: repeat(${dim}, 1fr); 
+          // grid-template-rows: repeat(${dim}, 1fr)`;
+
+    gridContainerEl.style.gridTemplateColumns = `repeat(${dim}, 1fr)`;
+    gridContainerEl.style.gridTemplaRows = `repeat(${dim}, 1fr)`;
 
     // eslint-disable-next-line no-plusplus
     for (let row = 0; row < dim; row++) {

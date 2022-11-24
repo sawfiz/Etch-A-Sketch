@@ -97,7 +97,6 @@ label {
     min-width: 600px;
     min-height: 600px;
     display: grid;
-    grid-template-rows: repeat(5, 20%);
 }
 
 item {
