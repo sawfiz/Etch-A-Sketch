@@ -5,12 +5,12 @@ import './style.css';
 const Controller = (() => {
   // Manu buttons
   const btnColorEl = document.querySelector('#btn-color');
+  const colorPickerEl = document.querySelector('#color-picker');
   const btnRainbowEl = document.querySelector('#btn-rainbow');
   const btnEraseEl = document.querySelector('#btn-erase');
   const btnClearEl = document.querySelector('#btn-clear');
-  const pointsEl = document.querySelector('#points');
   const labelEl = document.querySelector('label');
-  const colorPickerEl = document.querySelector('#color-picker');
+  const pointsEl = document.querySelector('#points');
 
   // Modal buttons
   const modalEl = document.querySelector('.modal');
@@ -33,13 +33,13 @@ const Controller = (() => {
   // Start with the single color button active, default to black
   btnColorEl.classList.add('active');
   btnColorEl.addEventListener('click', () => {
-    mode = 'black';
+    mode = 'personal';
     removeActive();
     btnColorEl.classList.add('active');
   });
 
   // Switch to user personal color
-  colorPickerEl.addEventListener('input', (e) => {
+  colorPickerEl.addEventListener('change', (e) => {
     mode = 'personal';
     personalColor = e.target.value;
     btnColorEl.innerText = `Current Color: ${personalColor}`;
